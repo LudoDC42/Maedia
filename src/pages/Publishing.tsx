@@ -61,13 +61,13 @@ export default function Publishing() {
 
       {/* Hero */}
       <header className="pt-24 px-6 md:px-24 mb-16">
-        <div className="max-w-6xl ml-auto text-right">
+        <div className="max-w-6xl mx-auto text-right">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-light mb-8 italic leading-tight whitespace-nowrap">
+            <h1 className="text-5xl md:text-7xl font-serif font-light mb-8 italic leading-tight whitespace-nowrap">
               MAEDIA Publishing.
             </h1>
             <p className="text-xl md:text-2xl text-black/60 leading-relaxed font-light ml-auto max-w-2xl">
@@ -79,7 +79,7 @@ export default function Publishing() {
 
       {/* Instagram Feed Section */}
       <section className="px-6 md:px-24 mt-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 justify-items-end">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 justify-items-center max-w-6xl mx-auto">
           <InstagramEmbed url="https://www.instagram.com/p/DXZduqCDG4z/" />
           <InstagramEmbed url="https://www.instagram.com/p/DXHdYvpjBPW/" />
           <InstagramEmbed url="https://www.instagram.com/p/DW1eZdlDHgY/" />

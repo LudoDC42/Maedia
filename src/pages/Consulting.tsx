@@ -24,7 +24,7 @@ export default function Consulting() {
 
       {/* Hero */}
       <header className="pt-24 px-6 md:px-24 mb-12">
-        <div className="max-w-6xl">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ export default function Consulting() {
               <div className="h-px flex-grow bg-black/5" />
             </h2>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 justify-items-center lg:justify-items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 justify-items-center justify-center">
               <div className="w-[504px] max-w-full shadow-xl rounded-xl overflow-hidden bg-white border border-black/5">
                 <iframe 
                   src="https://www.linkedin.com/embed/feed/update/urn:li:share:7454458648342401024?collapsed=1" 
