@@ -5,6 +5,14 @@ import { useState } from 'react';
 
 export default function Contact() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const phoneNumber = "+32 479 330 863";
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(phoneNumber);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <div className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white flex flex-col">
@@ -79,10 +87,15 @@ export default function Contact() {
               </motion.a>
 
               {/* Phone */}
-              <div className="flex items-center justify-center md:justify-start gap-4 p-6 border border-black/5 rounded-sm">
-                <Phone className="w-5 h-5 opacity-40" />
-                <span className="text-sm font-mono tracking-wider">+32 479 330 863</span>
-              </div>
+              <button 
+                onClick={handleCopy}
+                className="flex items-center justify-center md:justify-start gap-4 p-6 border border-black/5 rounded-sm hover:bg-black hover:text-white transition-all group w-full"
+              >
+                <Phone className="w-5 h-5 opacity-40 group-hover:opacity-100" />
+                <span className="text-sm font-mono tracking-wider">
+                  {copied ? 'Copied to clipboard' : phoneNumber}
+                </span>
+              </button>
 
               {/* Socials */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

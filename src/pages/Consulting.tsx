@@ -1,9 +1,23 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, Brain, Linkedin, Mail, ArrowRight, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Consulting() {
+  const [showPhone, setShowPhone] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const phoneNumber = "+32 479 330 863";
+
+  const handlePhoneClick = () => {
+    if (!showPhone) {
+      setShowPhone(true);
+    } else {
+      navigator.clipboard.writeText(phoneNumber);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = "https://widgets.sociablekit.com/linkedin-profile-posts/widget.js";
@@ -27,10 +41,15 @@ export default function Consulting() {
           <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
         </Link>
         <div className="flex items-center gap-8">
-          <div className="relative group/phone flex items-center gap-2 cursor-pointer">
-            <Phone className="w-4 h-4 opacity-60 group-hover/phone:opacity-100 transition-opacity" />
-            <div className="absolute top-full right-0 mt-3 whitespace-nowrap bg-white border border-black/10 text-black text-[11px] py-2 px-4 rounded-full opacity-0 group-hover/phone:opacity-100 transition-all duration-500 pointer-events-none tracking-[0.1em] font-mono translate-y-2 group-hover/phone:translate-y-0 shadow-[0_8px_30px_rgb(0,0,0,0.04)] z-[60]">
-              +32 479 330 863
+          <div 
+            className="relative group/phone flex items-center gap-2 cursor-pointer"
+            onClick={handlePhoneClick}
+          >
+            <Phone className={`w-4 h-4 transition-opacity ${showPhone ? 'opacity-100' : 'opacity-60'} group-hover/phone:opacity-100`} />
+            <div className={`absolute top-full right-0 mt-3 whitespace-nowrap bg-white border border-black/10 text-black text-[11px] py-2 px-4 rounded-full transition-all duration-500 tracking-[0.1em] font-mono shadow-[0_8px_30px_rgb(0,0,0,0.04)] z-[60] ${
+              showPhone ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none md:group-hover/phone:opacity-100 md:group-hover/phone:translate-y-0'
+            }`}>
+              {copied ? 'Copied!' : phoneNumber}
             </div>
           </div>
           <a 
