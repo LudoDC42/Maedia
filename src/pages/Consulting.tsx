@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowLeft, Brain, Linkedin, Mail, ArrowRight, Phone } from 'lucide-react';
+import { ArrowLeft, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 export default function Consulting() {
   const [showPhone, setShowPhone] = useState(false);
@@ -90,9 +91,7 @@ export default function Consulting() {
           </div>
         </header>
       </div>
-      <footer className="p-8 text-center opacity-20 text-[10px] uppercase tracking-[0.4em]">
-        © 2026 Maedia
-      </footer>
+      <Footer />
     </div>
   );
 }

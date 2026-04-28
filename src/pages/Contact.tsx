@@ -1,10 +1,10 @@
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, Mail, Phone, Instagram, Facebook, Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
+import { Mail, Phone, Instagram, Facebook } from 'lucide-react';
 import { useState } from 'react';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function Contact() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const phoneNumber = "+32 479 330 863";
 
@@ -16,50 +16,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white flex flex-col">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 w-full z-50 p-6 md:p-8 flex justify-between items-center bg-white/80 backdrop-blur-sm">
-        <Link 
-          to="/publishing" 
-          className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] opacity-40 font-medium hover:opacity-100 transition-opacity group"
-        >
-          <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-        </Link>
-        
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-12">
-          <Link to="/publishing" className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-40 hover:opacity-100 transition-opacity">Home</Link>
-          <span className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-40 cursor-default">Shop</span>
-          <Link to="/profile" className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-40 hover:opacity-100 transition-opacity">Profile</Link>
-          <Link to="/contact" className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-100">Contact</Link>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2 opacity-60 hover:opacity-100 transition-opacity"
-        >
-          {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-white pt-24 px-8 md:hidden"
-          >
-            <div className="flex flex-col gap-8">
-              <Link to="/publishing" onClick={() => setIsMenuOpen(false)} className="text-2xl font-serif italic tracking-tight border-b border-black/5 pb-4 opacity-40">Home</Link>
-              <span className="text-2xl font-serif italic tracking-tight border-b border-black/5 pb-4 opacity-40">Shop</span>
-              <Link to="/profile" onClick={() => setIsMenuOpen(false)} className="text-2xl font-serif italic tracking-tight border-b border-black/5 pb-4 opacity-40">Profile</Link>
-              <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="text-2xl font-serif italic tracking-tight border-b border-black/5 pb-4 opacity-100">Contact</Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <Navbar />
 
       <main className="flex-grow flex items-center justify-center px-6 pt-32">
         <div className="max-w-xl w-full">
@@ -123,9 +80,7 @@ export default function Contact() {
         </div>
       </main>
 
-      <footer className="p-8 text-center opacity-20 text-[10px] uppercase tracking-[0.4em]">
-        © 2026 Maedia
-      </footer>
+      <Footer />
     </div>
   );
 }
