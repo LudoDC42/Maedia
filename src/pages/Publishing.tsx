@@ -3,48 +3,19 @@ import { ArrowLeft, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-function InstagramEmbed({ url }: { url: string }) {
-  useEffect(() => {
-    // @ts-ignore
-    if (window.instgrm) {
-      // @ts-ignore
-      window.instgrm.Embeds.process();
-    }
-  }, [url]);
-
-  return (
-    <div className="w-full max-w-[500px] shadow-xl rounded-xl overflow-hidden border border-black/5 bg-white">
-      <blockquote 
-        className="instagram-media" 
-        data-instgrm-captioned 
-        data-instgrm-permalink={url}
-        data-instgrm-version="14" 
-        style={{ 
-          background: '#FFF', 
-          border: '0', 
-          borderRadius: '3px', 
-          boxShadow: 'none', 
-          margin: '0', 
-          padding: '0', 
-          width: '100%' 
-        }}
-      >
-      </blockquote>
-    </div>
-  );
-}
-
 export default function Publishing() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "//www.instagram.com/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
+    // SociableKIT Instagram Feed script
+    const skScript = document.createElement('script');
+    skScript.src = "https://widgets.sociablekit.com/instagram-feed/widget.js";
+    skScript.async = true;
+    skScript.defer = true;
+    document.body.appendChild(skScript);
     
     return () => {
-      document.body.removeChild(script);
+      document.body.removeChild(skScript);
     };
   }, []);
 
@@ -172,14 +143,13 @@ export default function Publishing() {
           </div>
         </header>
 
-        {/* Instagram Feed Section */}
-        <section className="px-6 md:px-24 mt-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 justify-items-center max-w-6xl mx-auto">
-            <InstagramEmbed url="https://www.instagram.com/p/DXZduqCDG4z/" />
-            <InstagramEmbed url="https://www.instagram.com/p/DXHdYvpjBPW/" />
-            <InstagramEmbed url="https://www.instagram.com/p/DW1eZdlDHgY/" />
-            <InstagramEmbed url="https://www.instagram.com/p/DWjV2Z4jKC5/" />
-          </div>
+        {/* SociableKIT Instagram Feed */}
+        <section className="px-6 md:px-24 mt-24 mb-24 max-w-6xl mx-auto">
+          <h2 className="text-xs uppercase tracking-[0.4em] font-medium opacity-40 mb-12 flex items-center gap-4">
+            Visual Journal
+            <div className="h-px flex-grow bg-black/5" />
+          </h2>
+          <div className="sk-instagram-feed" data-embed-id="25676794"></div>
         </section>
       </div>
       <footer className="p-8 text-center opacity-20 text-[10px] uppercase tracking-[0.4em]">
