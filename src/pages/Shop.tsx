@@ -36,12 +36,12 @@ export default function Shop() {
 
       <main className="flex-grow pt-32 px-6 md:px-24">
         <header className="mb-16">
-          <h1 className="text-5xl md:text-7xl font-serif italic mb-4">La Boutique.</h1>
-          <p className="text-black/40 text-xs uppercase tracking-[0.3em]">Éditions Limitées & Ouvrages</p>
+          <h1 className="text-5xl md:text-7xl font-serif italic mb-4">The Shop.</h1>
+          <p className="text-black/40 text-xs uppercase tracking-[0.3em]">Limited Editions & Books</p>
         </header>
 
         {loading ? (
-          <div className="flex justify-center py-24 opacity-20">Chargement...</div>
+          <div className="flex justify-center py-24 opacity-20">Loading...</div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
             {books.map((book) => (
@@ -56,7 +56,7 @@ export default function Shop() {
                     <img 
                       src={urlFor(book.cover).width(600).url()} 
                       alt={book.title}
-                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover"
                     />
                   )}
                 </Link>
@@ -67,7 +67,7 @@ export default function Shop() {
                   </div>
                   <p className="text-xs text-black/40 leading-relaxed line-clamp-2">{book.description}</p>
                   <Link to={`/shop/${book.slug.current}`} className="inline-block text-[10px] uppercase tracking-[0.2em] font-bold pt-4 border-b border-black/10 pb-1 hover:border-black transition-colors">
-                    Découvrir l'ouvrage
+                    Discover the book
                   </Link>
                 </div>
               </motion.div>
