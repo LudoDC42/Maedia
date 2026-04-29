@@ -22,6 +22,14 @@ export default function Publishing() {
     <div className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white flex flex-col">
       <Navbar backTo="/" />
 
+      <div className="fixed top-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none">
+        <img 
+          src="https://res.cloudinary.com/dazxzauko/image/upload/v1777460185/writing_pnpw5r.png" 
+          alt="Maedia" 
+          className="h-6 md:h-8" 
+        />
+      </div>
+
       <div className="flex-grow">
         {/* Hero */}
         <header className="pt-24 px-6 md:px-24 mb-16">

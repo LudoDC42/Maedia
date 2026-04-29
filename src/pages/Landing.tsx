@@ -6,6 +6,15 @@ import Footer from '../components/Footer';
 export default function Landing() {
   return (
     <div className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white flex flex-col">
+      {/* Top Logo */}
+      <div className="fixed top-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none">
+        <img 
+          src="https://res.cloudinary.com/dazxzauko/image/upload/v1777460185/writing_pnpw5r.png" 
+          alt="Maedia" 
+          className="h-6 md:h-8" 
+        />
+      </div>
+
       {/* Main Content Split */}
       <main className="grid grid-cols-2 flex-grow">
         {/* Consulting Section */}

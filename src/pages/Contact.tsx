@@ -18,6 +18,14 @@ export default function Contact() {
     <div className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white flex flex-col">
       <Navbar />
 
+      <div className="fixed top-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none">
+        <img 
+          src="https://res.cloudinary.com/dazxzauko/image/upload/v1777460185/writing_pnpw5r.png" 
+          alt="Maedia" 
+          className="h-6 md:h-8" 
+        />
+      </div>
+
       <main className="flex-grow flex items-center justify-center px-6 pt-32">
         <div className="max-w-xl w-full">
           <motion.div

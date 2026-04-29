@@ -48,6 +48,14 @@ export default function BookDetail() {
     <div className="min-h-screen bg-white text-black font-sans flex flex-col">
       <Navbar backTo="/shop" backLabel="Retour" />
 
+      <div className="fixed top-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none">
+        <img 
+          src="https://res.cloudinary.com/dazxzauko/image/upload/v1777460185/writing_pnpw5r.png" 
+          alt="Maedia" 
+          className="h-6 md:h-8" 
+        />
+      </div>
+
       <main className="flex-grow pt-32 px-6 md:px-24 mb-24">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
