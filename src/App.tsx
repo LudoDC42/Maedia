@@ -6,10 +6,12 @@ import Contact from './pages/Contact';
 import Profile from './pages/Profile';
 import Shop from './pages/Shop';
 import BookDetail from './pages/BookDetail';
+import CookieConsent from './components/CookieConsent';
 
 export default function App() {
   return (
     <Router>
+      <CookieConsent />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/consulting" element={<Consulting />} />
